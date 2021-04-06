@@ -5,15 +5,15 @@ resource "azurerm_route_table" "rt" {
     location = "canadaCentral"
     disable_bgp_route_propagation = false
     route {
-        name = "toCoreFW-Prod-Internet-route"
+        name = "toCoreFW-Dev-Internet-route"
         address_prefix = "0.0.0.0/0"
-        next_hop_in_ip_address = cidrhost(var.core,1034)
+        next_hop_in_ip_address = cidrhost(var.core,1066)
         next_hop_type = "VirtualAppliance"
     }
     route {
-        name = "toCoreFW-Prod-Core-route"
+        name = "toCoreFW-Dev-Core-route"
         address_prefix = var.core
-        next_hop_in_ip_address = cidrhost(var.core,1034)
+        next_hop_in_ip_address = cidrhost(var.core,1066)
         next_hop_type = "VirtualAppliance"
     }
     tags = var.globals.tags

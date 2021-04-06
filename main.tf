@@ -12,5 +12,7 @@ data "azurerm_client_config" "current" {provider = azurerm.sub}
 /* Output
 ------------------------------------------------------------------*/
 output "moduleOutput" {
-    value = cidrhost(var.core,1034)
+    value =  {
+        "nexthop" = cidrhost(var.core,1066)
+    }
 }
