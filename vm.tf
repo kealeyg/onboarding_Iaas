@@ -1,11 +1,11 @@
 /* Create VMs
 ------------------------------------------------------------------*/
 resource "azurerm_windows_virtual_machine" "vm01" {
-    name = join("", [var.globals.env,"SWA","-",var.globals.project,"RD","-","vm"])
+    name = join("", [var.globals.env,"SWJ","-",var.globals.project,"RDSH01"])
     provider = azurerm.sub
     location = "canadaCentral"
     resource_group_name   = azurerm_resource_group.system-rg.name
-    computer_name  = join("", [var.globals.env,"SWA","-",var.globals.project,"RD"])
+    computer_name  = join("", [var.globals.env,"SWJ","-",var.globals.project,"RDSH01"])
     admin_username = var.keyvault.user
     admin_password = var.keyvault.pwd
     network_interface_ids = [azurerm_network_interface.nic1.id]
@@ -34,7 +34,7 @@ resource "azurerm_windows_virtual_machine" "vm01" {
     }
     */
     os_disk {
-        name = join("", [var.globals.env,"SWA","-",var.globals.project,"RD","-","OSDisk1"])
+        name = join("", [var.globals.env,"SWJ","-",var.globals.project,"RDSH01","-","OSDisk1"])
         caching = "ReadWrite"
         storage_account_type = "Standard_LRS"
     }
