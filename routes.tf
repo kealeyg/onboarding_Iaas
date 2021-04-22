@@ -18,8 +18,8 @@ resource "azurerm_route_table" "rt" {
     }
     route {
         name = "toCoreFW-Dev-Core2-route"
-        address_prefix = var.core
-        next_hop_in_ip_address = cidrhost(var.core2,1066) 
+        address_prefix = var.core2
+        next_hop_in_ip_address = cidrhost(var.core,1066) 
         next_hop_type = "VirtualAppliance"
     }
     tags = var.globals.tags
