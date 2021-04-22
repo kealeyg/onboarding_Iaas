@@ -6,6 +6,7 @@ variable "keyvault" {}
 variable "vnet" {}
 variable "snet" {}
 variable "core" {}
+variable "core2" {}
 
 data "azurerm_client_config" "current" {provider = azurerm.sub}
 
